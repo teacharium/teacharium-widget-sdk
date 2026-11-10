@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacharium widget preview</title>
+    <!--
+      Same contract as every Teacharium host: widget bundles import "react"
+      and "react-dom" as bare modules, and the import map sends them to shims
+      that re-export the page's own React (window.React / window.ReactDOM).
+      It must come before any module script.
+    -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "/__teacharium/react-shim.js",
+          "react-dom": "/__teacharium/react-dom-shim.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

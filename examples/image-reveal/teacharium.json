@@ -1,0 +1,5 @@
+{
+  "name": "Image Reveal Example",
+  "description": "An image from the lesson's media library that the learner reveals",
+  "entry": "src/main.ts"
+}

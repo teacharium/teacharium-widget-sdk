@@ -1,0 +1,5 @@
+{
+  "name": "Variable Slider Example",
+  "description": "A slider bound to a lesson variable, with expression-driven limits",
+  "entry": "src/main.ts"
+}

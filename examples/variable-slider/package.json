@@ -1,0 +1,27 @@
+{
+  "name": "@teacharium-examples/variable-slider",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "A slider bound to a lesson variable, with expression-driven limits",
+  "scripts": {
+    "dev": "teacharium dev",
+    "build": "tsc --noEmit && teacharium build",
+    "deploy": "tsc --noEmit && teacharium publish",
+    "type-check": "tsc --noEmit",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@teacharium/widget": "workspace:*",
+    "react": "19.1.2",
+    "react-dom": "19.1.2"
+  },
+  "devDependencies": {
+    "@measured/puck": "^0.20.2",
+    "@teacharium/widget-tools": "workspace:*",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.5"
+  }
+}

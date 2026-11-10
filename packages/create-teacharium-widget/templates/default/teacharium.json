@@ -1,0 +1,5 @@
+{
+  "name": "{{displayName}}",
+  "description": "Custom widgets for Teacharium lessons",
+  "entry": "src/main.ts"
+}

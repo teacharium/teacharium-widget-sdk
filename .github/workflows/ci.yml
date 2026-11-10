@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile=false
+      - run: pnpm build
+      - name: Scaffold and build a new project from the packed packages
+        run: |
+          mkdir -p "$RUNNER_TEMP/pkgs"
+          pnpm --filter ./packages/widget pack --pack-destination "$RUNNER_TEMP/pkgs"
+          pnpm --filter ./packages/widget-tools pack --pack-destination "$RUNNER_TEMP/pkgs"
+          WIDGET=$(ls "$RUNNER_TEMP"/pkgs/teacharium-widget-[0-9]*.tgz)
+          TOOLS=$(ls "$RUNNER_TEMP"/pkgs/teacharium-widget-tools-*.tgz)
+          node packages/create-teacharium-widget/index.js "$RUNNER_TEMP/smoke" --name "Smoke Test"
+          cd "$RUNNER_TEMP/smoke"
+          npm pkg set "dependencies.@teacharium/widget=file:$WIDGET" \
+            "devDependencies.@teacharium/widget-tools=file:$TOOLS" \
+            "overrides.@teacharium/widget=file:$WIDGET"
+          npm install
+          npm run build

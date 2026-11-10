@@ -1,0 +1,29 @@
+{
+  "name": "create-teacharium-widget",
+  "version": "0.1.1",
+  "description": "Create a Teacharium widget package: npm create teacharium-widget",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "create-teacharium-widget": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "teachariumVersions": {
+    "@teacharium/widget": "^0.6.2",
+    "@teacharium/widget-tools": "^0.1.1"
+  },
+  "scripts": {
+    "lint": "node --check index.js",
+    "type-check": "node --check index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

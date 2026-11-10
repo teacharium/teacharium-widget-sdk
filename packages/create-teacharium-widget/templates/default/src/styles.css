@@ -1,0 +1,73 @@
+/*
+ * Widget styles. Prefix every class with your component's name so it can't
+ * clash with the lesson, the player or other widgets. Tailwind isn't
+ * available where widgets run (SCORM exports, the self-hosted player).
+ */
+.hello-card {
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff;
+  border-top: 4px solid var(--hello-card-accent);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 12%);
+}
+
+.hello-card--blue {
+  --hello-card-accent: var(--tool-blue, #00aedb);
+}
+
+.hello-card--green {
+  --hello-card-accent: var(--tool-green, #00b159);
+}
+
+.hello-card--orange {
+  --hello-card-accent: var(--tool-orange, #f37735);
+}
+
+.hello-card__title {
+  margin: 0 0 8px;
+}
+
+.hello-card__button {
+  margin-top: 12px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: var(--hello-card-accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.hello-card__button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.true-or-false {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.true-or-false__statement {
+  width: 100%;
+  margin-bottom: 12px;
+  font-size: 1.1em;
+}
+
+.true-or-false__option {
+  min-width: 120px;
+  padding: 12px 20px;
+  border: 2px solid #d0d5dd;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.true-or-false__option--selected {
+  border-color: var(--tool-blue, #00aedb);
+  background: #e6f7fb;
+}

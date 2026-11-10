@@ -1,0 +1,45 @@
+.example-reveal {
+  margin: 0;
+}
+
+.example-reveal__frame {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f2f4f7;
+}
+
+.example-reveal__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: filter 400ms ease;
+}
+
+.example-reveal__image--hidden {
+  filter: blur(24px) brightness(0.8);
+}
+
+.example-reveal__button {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+}
+
+.example-reveal__empty {
+  padding: 48px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.example-reveal figcaption {
+  margin-top: 8px;
+  color: #475467;
+}

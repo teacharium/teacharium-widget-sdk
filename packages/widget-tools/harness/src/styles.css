@@ -1,0 +1,264 @@
+:root {
+  --h-bg: #f6f7f9;
+  --h-panel: #ffffff;
+  --h-border: #e2e5ea;
+  --h-text: #1d2330;
+  --h-muted: #6b7280;
+  --h-accent: #4f46e5;
+  --h-error: #b42318;
+  --h-error-bg: #fef3f2;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  color: var(--h-text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--h-bg);
+}
+
+code,
+pre,
+.h-json {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+}
+
+h3 {
+  margin: 16px 0 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--h-muted);
+}
+
+button,
+select,
+input,
+textarea {
+  font: inherit;
+  font-size: 13px;
+}
+
+button {
+  border: 1px solid var(--h-border);
+  background: var(--h-panel);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.h-app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.h-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--h-panel);
+  border-bottom: 1px solid var(--h-border);
+}
+
+.h-spacer {
+  flex: 1;
+}
+
+.h-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.h-badge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: var(--h-accent);
+}
+
+.h-badge-error {
+  background: var(--h-error-bg);
+  color: var(--h-error);
+}
+
+.h-error {
+  margin: 0;
+  padding: 12px 16px;
+  background: var(--h-error-bg);
+  color: var(--h-error);
+  white-space: pre-wrap;
+  border-bottom: 1px solid #fecdca;
+  max-height: 30vh;
+  overflow: auto;
+}
+
+.h-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.h-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  overflow: auto;
+  padding: 0 16px 16px;
+  background: var(--h-panel);
+  border-right: 1px solid var(--h-border);
+}
+
+.h-sidebar-right {
+  border-right: none;
+  border-left: 1px solid var(--h-border);
+}
+
+.h-stage {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.h-stage > * {
+  height: 100%;
+}
+
+.h-components {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.h-components button {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.h-components button:hover {
+  background: var(--h-bg);
+}
+
+.h-components button.h-active {
+  background: #eef2ff;
+  color: var(--h-accent);
+  font-weight: 600;
+}
+
+.h-muted {
+  color: var(--h-muted);
+  font-weight: 400;
+}
+
+.h-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.h-link {
+  border: none;
+  background: none;
+  color: var(--h-accent);
+  padding: 0;
+  font-size: 12px;
+}
+
+.h-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.h-field-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.h-field-label code {
+  font-weight: 400;
+  color: var(--h-muted);
+}
+
+.h-field input,
+.h-field select,
+.h-field textarea {
+  width: 100%;
+  border: 1px solid var(--h-border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  background: #fff;
+}
+
+.h-hint {
+  font-size: 12px;
+  color: var(--h-muted);
+}
+
+.h-center {
+  text-align: center;
+  margin-top: 30vh;
+}
+
+.h-error-text {
+  font-size: 12px;
+  color: var(--h-error);
+}
+
+.h-inspector {
+  width: 260px;
+  padding: 0 12px 12px;
+  overflow: auto;
+  border-left: 1px solid var(--h-border);
+  background: var(--h-panel);
+}
+
+.h-inspector table {
+  width: 100%;
+  font-size: 12px;
+  border-collapse: collapse;
+}
+
+.h-inspector td {
+  padding: 4px 0;
+  border-bottom: 1px solid var(--h-border);
+  vertical-align: top;
+  word-break: break-all;
+}
+
+.h-item pre,
+.h-events pre {
+  margin: 4px 0 8px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: var(--h-muted);
+}
+
+.h-events ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.h-events li {
+  border-bottom: 1px solid var(--h-border);
+  padding: 6px 0;
+}

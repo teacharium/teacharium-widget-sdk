@@ -1,0 +1,5 @@
+{
+  "name": "Reading Timer Example",
+  "description": "Keeps the Next button disabled until the learner has spent time on the step",
+  "entry": "src/main.ts"
+}

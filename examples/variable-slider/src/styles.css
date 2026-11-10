@@ -1,0 +1,24 @@
+.example-slider {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+}
+
+.example-slider input[type="range"] {
+  width: 100%;
+  accent-color: var(--tool-blue, #00aedb);
+}
+
+.example-slider__value {
+  min-width: 3ch;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  text-align: right;
+}
+
+.example-slider__hint {
+  grid-column: 1 / -1;
+  color: #6b7280;
+}
