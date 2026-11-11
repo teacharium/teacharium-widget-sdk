@@ -31,6 +31,13 @@ export type VoiceType =
 
 export interface VoiceoverData {
   enabled: boolean;
+  /**
+   * Organization voice the clip is spoken with: an organization voice id,
+   * or "default" for the lesson's default voice. When set, `voice` and
+   * `speed` are hints kept in sync with that voice. Voiceovers without it
+   * use `voice` and `speed` directly.
+   */
+  voiceId?: string;
   voice: VoiceType;
   speed?: number;
   showPlayButton: boolean;
@@ -260,10 +267,20 @@ export interface TeachariumWidgetApi {
     useLessonEventEmitter: UseLessonEventEmitter;
     useLessonEventSubscription: UseLessonEventSubscription;
     useResolvedMediaUrl: (mediaId: string | undefined) => MediaUrlResult;
-    useResolvedVoiceoverUrl: (
-      contentHash: string | undefined,
-      voice: string | undefined,
-    ) => MediaUrlResult;
+    /**
+     * Audio URL for a voiceover. Pass the component's voiceover value
+     * (preferred: it resolves organization voices and returns nothing while
+     * the voiceover is disabled), or its contentHash, voice and speed.
+     */
+    useResolvedVoiceoverUrl: {
+      (voiceover: VoiceoverData | undefined): MediaUrlResult;
+      (
+        contentHash: string | undefined,
+        voice: string | undefined,
+        /** Speed the clip was generated at (voiceover.speed). Defaults to 1. */
+        speed?: number,
+      ): MediaUrlResult;
+    };
 
     useResolvedVideoUrls: (videoId: string | undefined) => VideoUrlResult;
 
