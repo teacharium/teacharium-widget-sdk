@@ -11,6 +11,22 @@ function formatValue(value: unknown): string {
   return typeof value === "string" ? JSON.stringify(value) : String(value);
 }
 
+/** Value kind for styling: string, number, boolean or empty. */
+function valueKind(value: unknown): string {
+  if (value === undefined || value === null) return "empty";
+  return typeof value;
+}
+
+/** Let long variable names wrap only after `_` and `-`, never mid-word. */
+function breakableName(name: string) {
+  return name.split(/(?<=[_-])/).map((part, index) => (
+    <span key={index}>
+      {part}
+      <wbr />
+    </span>
+  ));
+}
+
 /**
  * Rendered as the player's `sideContent`, inside its providers, so it can
  * read the live variables and items the widget writes.
@@ -31,18 +47,18 @@ export function Inspector() {
             None yet. Widgets add them with api.addVariable().
           </p>
         ) : (
-          <table>
-            <tbody>
-              {variableList.map((variable) => (
-                <tr key={variable.name}>
-                  <td>
-                    <code>{variable.name}</code>
-                  </td>
-                  <td>{formatValue(variable.currentValue)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <dl className="h-vars">
+            {variableList.map((variable) => (
+              <div key={variable.name} className="h-var">
+                <dt title={variable.name}>{breakableName(variable.name)}</dt>
+                <dd
+                  className={`h-var-value h-var-${valueKind(variable.currentValue)}`}
+                >
+                  {formatValue(variable.currentValue)}
+                </dd>
+              </div>
+            ))}
+          </dl>
         )}
       </section>
       <section>
@@ -54,8 +70,9 @@ export function Inspector() {
         ) : (
           itemList.map((item) => (
             <div key={item.widgetId} className="h-item">
-              <div>
-                <code>{item.widgetName ?? item.widgetId}</code> · {item.type}
+              <div className="h-item-title">
+                <code>{item.widgetName ?? item.widgetId}</code>
+                <span className="h-item-type">{item.type}</span>
               </div>
               <pre>{JSON.stringify(item.status, null, 2)}</pre>
             </div>

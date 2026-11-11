@@ -231,17 +231,69 @@ button {
   background: var(--h-panel);
 }
 
-.h-inspector table {
-  width: 100%;
-  font-size: 12px;
-  border-collapse: collapse;
+.h-vars {
+  margin: 0;
 }
 
-.h-inspector td {
-  padding: 4px 0;
+.h-var {
+  padding: 6px 0;
   border-bottom: 1px solid var(--h-border);
-  vertical-align: top;
-  word-break: break-all;
+}
+
+.h-var dt {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: var(--h-muted);
+  overflow-wrap: anywhere;
+}
+
+.h-var-value {
+  display: inline-block;
+  margin: 3px 0 0;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--h-bg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.h-var-number {
+  color: #1d4ed8;
+}
+
+.h-var-boolean {
+  color: #7c3aed;
+}
+
+.h-var-string {
+  color: #047857;
+}
+
+.h-var-empty {
+  color: var(--h-muted);
+  font-weight: 400;
+}
+
+.h-item-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.h-item-title code {
+  overflow-wrap: anywhere;
+}
+
+.h-item-type {
+  padding: 0 6px;
+  border-radius: 4px;
+  background: var(--h-bg);
+  color: var(--h-muted);
+  font-size: 11px;
 }
 
 .h-item pre,

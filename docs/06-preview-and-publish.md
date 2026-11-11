@@ -57,6 +57,9 @@ npx teacharium whoami
 npx teacharium logout
 ```
 
+Run these inside your widget project (where `@teacharium/widget-tools` is
+installed). Anywhere else, use `npx @teacharium/widget-tools login`.
+
 `login` opens your browser to approve access (OAuth). The session is stored in
 your user config directory and refreshed automatically.
 
