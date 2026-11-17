@@ -9,6 +9,14 @@ import type {
 import type { TeachariumWidgetApi } from "./teacharium-widget-api";
 import type { TeachariumCustomFields } from "./teacharium-custom-fields";
 
+/**
+ * Put this class on the placeholder a widget renders while `api.isEditing`
+ * when the widget shows nothing to learners (logic, timers, formulas). The
+ * step editor's "Hide invisible widgets" toggle hides components that
+ * contain it.
+ */
+export const INVISIBLE_WIDGET_CLASS = "teacharium-invisible-widget";
+
 interface TeachariumComponentProps {
   api: TeachariumWidgetApi;
 }

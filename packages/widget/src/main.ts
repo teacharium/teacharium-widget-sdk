@@ -6,6 +6,7 @@ export { AudioPlayer } from "./components/AudioPlayer";
 export * from "./utils/voiceover";
 export * from "./utils/actions";
 export * from "./utils/numeric";
+export * from "./utils/media-ref";
 export * from "./manifest";
 
 export const hi = "world";

@@ -136,6 +136,20 @@ branching). They don't get the common layout settings (transition, frame,
 alignment, visibility) that other components get automatically, and they
 usually render a small placeholder only while `api.isEditing`.
 
+Any widget that shows nothing to learners should put `INVISIBLE_WIDGET_CLASS`
+(from `@teacharium/widget`) on that editor placeholder. Authors can then hide
+these widgets with the step editor's **Hide invisible widgets** toggle to see
+the step as learners will:
+
+```tsx
+import { INVISIBLE_WIDGET_CLASS } from "@teacharium/widget";
+
+if (api.isEditing) {
+  return <div className={`my-timer-placeholder ${INVISIBLE_WIDGET_CLASS}`}>Timer</div>;
+}
+return null;
+```
+
 ## Common settings you get for free
 
 Every non-Logic component automatically gets these settings in the editor, and
